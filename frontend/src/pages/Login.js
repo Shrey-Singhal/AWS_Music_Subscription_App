@@ -38,6 +38,10 @@ const Login = () => {
                 console.error('Login error:', error);
             });
     };
+
+    const navigateToRegister = () => {
+        navigate('/register')
+    }
     return (
         <div>
             <h1>Login</h1>
@@ -49,6 +53,7 @@ const Login = () => {
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <br />
                 <button type="submit">Login</button>
+                <button type ="register" onClick={navigateToRegister}>Register</button>
             </form>
             {errorMessage && <p>{errorMessage}</p>}
         </div>

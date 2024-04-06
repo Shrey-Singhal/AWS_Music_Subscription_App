@@ -13,10 +13,14 @@ const Register = () => {
             <form>
                 <label>Username:</label>
                 <input type = "username" value={username} onChange ={(e) => setUsername(e.target.value)} required />
+                <br />
                 <label>Email:</label>
                 <input type ="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                <br />
                 <label>Password:</label>
                 <input type = "password" value = {password} onChange={(e) => setPassword(e.target.value)} required/>
+                <br/>
+                <button type="submit">Submit</button>
             </form>
             {errorMessage && <p>{errorMessage}</p>}
         </div>
