@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; // Assuming you're using react-router f
 
 const Navbar = () => {
     return (
-        <nav className="bg-gray-800 text-white p-4">
+        <nav className="bg-custom-color text-white p-4 border-b border-white border-opacity-30">
             <div className="container px-14 flex justify-between items-center">
                 <div className="text-lg font-semibold">
                     <Link to="/mainpage" className="hover:text-gray-300">Music Subscription App</Link>
