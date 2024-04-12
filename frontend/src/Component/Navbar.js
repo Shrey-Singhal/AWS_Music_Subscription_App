@@ -21,6 +21,9 @@ const Navbar = () => {
                     {/*<Link to={user ? "/mainpage" : "/"}>*/}
                     {/*    <button className="hover:text-gray-300">Query Area</button>*/}
                     {/*</Link>*/}
+                    <Link to="/query">
+                        <button className="hover:text-gray-300">Query Area</button>
+                    </Link>
 
                     {!user && (
                         <Link to="/">
