@@ -76,8 +76,12 @@ const Login = () => {
 
 
 
-            {errorMessage && <p>{errorMessage}</p>}
+            {errorMessage && <p className="text-red-500 text-sm mt-2">{errorMessage}</p>}
+
+
         </div>
+
+
     )
 }
 

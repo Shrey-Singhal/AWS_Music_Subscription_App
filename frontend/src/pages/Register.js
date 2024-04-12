@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router-dom";
-import {useState} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 const Register = () => {
     const [username, setUsername] = useState("");
@@ -62,8 +62,9 @@ const Register = () => {
                     text-black bg-custom-color2 hover:brightness-90 w-full mb-1 mt-2"
                     >Submit</button>
                 </form>
-                {errorMessage && <p>{errorMessage}</p>}
+
             </div>
+            {errorMessage && <p className="text-red-500 text-sm mt-2">{errorMessage}</p>}
 
         </div>
     )
