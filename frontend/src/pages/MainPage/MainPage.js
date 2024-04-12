@@ -16,7 +16,10 @@ const MainPage = () => {
                 <button
                     className="p-[5px] pl-[16px] pr-[16px] rounded-[6px] leading-5 cursor-pointer
                     text-black bg-custom-color2 hover:brightness-90 w-full mb-1"
-                    onClick={() => navigate('/subscriptions')}>View Subscriptions</button>
+
+                    onClick={() => navigate('/subscriptions')}>
+                    View Subscriptions
+                </button>
                 <button
                     className="p-[5px] pl-[16px] pr-[16px] rounded-[6px] leading-5 cursor-pointer
                     text-black bg-custom-color2 hover:brightness-90 w-full mb-1"
