@@ -18,9 +18,9 @@ const Navbar = () => {
                     <Link to={user ? "/mainpage" : "/"} className="hover:text-gray-300">Music Subscription App</Link>
                 </div>
                 <div className="md:flex space-x-4">
-                    <Link to={user ? "/mainpage" : "/"}>
-                        <button className="hover:text-gray-300">Query Area</button>
-                    </Link>
+                    {/*<Link to={user ? "/mainpage" : "/"}>*/}
+                    {/*    <button className="hover:text-gray-300">Query Area</button>*/}
+                    {/*</Link>*/}
 
                     {!user && (
                         <Link to="/">
