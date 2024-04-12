@@ -6,18 +6,23 @@ import Register from "./pages/Register";
 import Navbar from "./Component/Navbar";
 import Subscriptions from "./pages/MainPage/Subscriptions";
 import Query from "./pages/MainPage/Query";
+import {AuthProvider} from "./Context/AuthContext";
 function App() {
   return (
-      <Router>
-          <Navbar />
-          <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/mainpage" element={<MainPage />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/query" element={<Query />} />
-              <Route path="/subscriptions" element={<Subscriptions />} />
-          </Routes>
-      </Router>
+      <AuthProvider>
+          <Router>
+              <Navbar />
+              <Routes>
+                  <Route path="/" element={<Login />} />
+                  <Route path="/mainpage" element={<MainPage />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/query" element={<Query />} />
+                  <Route path="/subscriptions" element={<Subscriptions />} />
+              </Routes>
+          </Router>
+
+      </AuthProvider>
+
   );
 }
 

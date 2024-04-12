@@ -1,10 +1,14 @@
-import React, { useState} from "react";
+import React, {useContext, useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {useAuth} from "../Context/AuthContext";
+
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+
+    const { login } = useAuth();
     const navigate = useNavigate();
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -25,8 +29,8 @@ const Login = () => {
 
                 if (responseBody.password === password) {
                     // Handle successful login
-                    console.log('Login successful', response.data);
-                    navigate('/mainpage')
+                    login({ email, name: responseBody.user_name }); // Call login function with user data
+                    navigate('/mainpage');
                 } else {
                     // Incorrect password
                     setErrorMessage('Incorrect email or password.');
