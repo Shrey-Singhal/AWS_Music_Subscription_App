@@ -77,20 +77,21 @@ const Query = () => {
             {errorMessage && <p className="text-red-500 text-sm mt-2">{errorMessage}</p>}
             {isVisible && (
                 <div className="mt-8">
-                    <h1 className="flex text-3xl font-bold mb-2">Your Results</h1>
+                    <h1 className="flex text-3xl font-bold mb-4">Your Results</h1>
                     <table className="min-w-full divide-y">
                         <thead>
                         <tr>
-                            <th>Artist</th>
-                            <th>Title</th>
-                            <th>Year</th>
-                            <th>Image</th>
+                            <th className="text-left align-middle">Artist</th>
+                            <th className="text-left align-middle">Title</th>
+                            <th className="text-left align-middle">Year</th>
+                            <th className="text-left align-middle">Image</th>
+                            <th className="text-left align-middle">Subscribe</th>
                         </tr>
                         </thead>
-                        <tbody className="bg-custom-color2 text-black divide-y divide-gray-200">
+                        <tbody className="bg-custom-color2 text-black divide-y divide-gray-300">
                         {musicData.map((item, index) => (
                             <tr key={index}>
-                                <td>{item.artist}</td>
+                                <td className="font-bold">{item.artist}</td>
                                 <td>{item.title}</td>
                                 <td>{item.year}</td>
                                 <td>
@@ -99,6 +100,12 @@ const Query = () => {
                                         alt={`Cover for ${item.title}`}
                                         className="w-20 h-20 object-cover"
                                     />
+                                </td>
+                                <td>
+                                    <button className="p-[5px] pl-[16px] pr-[16px] rounded-[6px] leading-5 cursor-pointer
+                    text-white bg-custom-color hover:brightness-200 w-full mb-1 mt-4">
+                                        Subscribe
+                                    </button>
                                 </td>
                             </tr>
                         ))}
