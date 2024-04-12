@@ -6,10 +6,16 @@ const Query = () => {
     const [year, setYear] = useState("");
     const [musicData, setMusicData] = useState([]);
     const [isVisible, setIsVisible] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
 
     const handleSubmitQuery = async (event) => {
         event.preventDefault();
+        // Reset states for a fresh submission
+        setIsVisible(false);
+        setMusicData([]);
+        setErrorMessage("");
+
         const apiEndpoint = "https://sjj7ct221l.execute-api.us-east-1.amazonaws.com/Production/music_table_lambda_function";
         axios.post(apiEndpoint,{
             operation:'query',
@@ -23,6 +29,9 @@ const Query = () => {
                 const responseBody = JSON.parse(response.data.body);
                 setMusicData(responseBody);
                 setIsVisible(true);
+            }
+            else {
+                setErrorMessage("No result is retrieved. Please query again")
             }
             //console.log(responseBody);
         })
@@ -65,8 +74,10 @@ const Query = () => {
                 </form>
 
             </div>
+            {errorMessage && <p className="text-red-500 text-sm mt-2">{errorMessage}</p>}
             {isVisible && (
-                <div className="mt-4">
+                <div className="mt-8">
+                    <h1 className="flex text-3xl font-bold mb-2">Your Results</h1>
                     <table className="min-w-full divide-y">
                         <thead>
                         <tr>
