@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import {useAuth} from "../../Context/AuthContext";
 const Query = () => {
     const [artist, setArtist] = useState("");
     const [title, setTitle] = useState("");
@@ -8,6 +9,7 @@ const Query = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
+    const { user } = useAuth();
 
     const handleSubmitQuery = async (event) => {
         event.preventDefault();
@@ -36,6 +38,22 @@ const Query = () => {
             //console.log(responseBody);
         })
 
+    };
+
+    const addSubscription = async (item) => {
+        const apiEndpoint = 'https://ci7qilynd0.execute-api.us-east-1.amazonaws.com/Production/login_table_lambda_function';
+        axios.post(apiEndpoint, {
+            operation: 'subscribe',
+            email: user.email,
+            subscription: item
+        }).then(response => {
+            console.log(response);
+            if (response.data.statusCode === 200) {
+                alert('Subscription added successfully');
+            } else {
+                alert(response.data.body);
+            }
+        })
     };
 
 
@@ -81,29 +99,32 @@ const Query = () => {
                     <table className="min-w-full divide-y">
                         <thead>
                         <tr>
+                            <th className="text-left align-middle">Image</th>
                             <th className="text-left align-middle">Artist</th>
                             <th className="text-left align-middle">Title</th>
                             <th className="text-left align-middle">Year</th>
-                            <th className="text-left align-middle">Image</th>
+
                             <th className="text-left align-middle">Subscribe</th>
                         </tr>
                         </thead>
                         <tbody className="bg-custom-color2 text-black divide-y divide-gray-300">
                         {musicData.map((item, index) => (
                             <tr key={index}>
-                                <td className="font-bold">{item.artist}</td>
-                                <td>{item.title}</td>
-                                <td>{item.year}</td>
                                 <td>
                                     <img
-                                        src={item.img_url}
+                                        src={`data:image/jpeg;base64,${item.encoded_img_data}`}
                                         alt={`Cover for ${item.title}`}
                                         className="w-20 h-20 object-cover"
                                     />
                                 </td>
+                                <td className="font-bold">{item.artist}</td>
+                                <td>{item.title}</td>
+                                <td>{item.year}</td>
+
                                 <td>
                                     <button className="p-[5px] pl-[16px] pr-[16px] rounded-[6px] leading-5 cursor-pointer
-                    text-white bg-custom-color hover:brightness-200 w-full mb-1 mt-4">
+                    text-white bg-custom-color hover:brightness-200 w-full mb-1 mt-4"
+                                    onClick={() => addSubscription(item)}>
                                         Subscribe
                                     </button>
                                 </td>
