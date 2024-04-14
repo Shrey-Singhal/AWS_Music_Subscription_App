@@ -7,19 +7,22 @@ import Navbar from "./Component/Navbar";
 import Subscriptions from "./pages/MainPage/Subscriptions";
 import Query from "./pages/MainPage/Query";
 import {AuthProvider} from "./Context/AuthContext";
+import {SubscriptionProvider} from "./Context/SubscriptionContext";
 function App() {
   return (
       <AuthProvider>
-          <Router>
-              <Navbar />
-              <Routes>
-                  <Route path="/" element={<Login />} />
-                  <Route path="/mainpage" element={<MainPage />} />
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/query" element={<Query />} />
-                  <Route path="/subscriptions" element={<Subscriptions />} />
-              </Routes>
-          </Router>
+          <SubscriptionProvider>
+              <Router>
+                  <Navbar />
+                  <Routes>
+                      <Route path="/" element={<Login />} />
+                      <Route path="/mainpage" element={<MainPage />} />
+                      <Route path="/register" element={<Register />} />
+                      <Route path="/query" element={<Query />} />
+                      <Route path="/subscriptions" element={<Subscriptions />} />
+                  </Routes>
+              </Router>
+          </SubscriptionProvider>
 
       </AuthProvider>
 
