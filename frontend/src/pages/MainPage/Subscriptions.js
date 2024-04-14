@@ -14,23 +14,7 @@ const Subscriptions = () => {
             fetchSubscriptions(user.email);
         }
     }, [user?.email, fetchSubscriptions]);
-    // useEffect(()=>{
-    //     const fetchData = async () => {
-    //         const apiEndpoint = 'https://ci7qilynd0.execute-api.us-east-1.amazonaws.com/Production/login_table_lambda_function';
-    //
-    //         axios.post(apiEndpoint,{
-    //             operation:'get_subscriptions',
-    //             email: user.email
-    //         }).then(response => {
-    //             const responseBody = JSON.parse(response.data.body);
-    //             setSubsData(responseBody);
-    //             console.log(responseBody);
-    //
-    //         })
-    //
-    //     };
-    //     fetchData();
-    // }, []);
+
 
     const handleUnsubscribe = (item) => {
         removeSubscription(user.email, item);
@@ -42,7 +26,7 @@ const Subscriptions = () => {
 
                 <>
 
-                    <h1 className="flex text-2xl font-bold mb-4">Your Subscriptions</h1>
+                    <h1 className="flex text-2xl font-bold mb-4 ">Your Subscriptions</h1>
                     <div>
 
                         <table className="min-w-full divide-y">

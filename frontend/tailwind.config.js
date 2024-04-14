@@ -6,8 +6,10 @@ module.exports = {
       backgroundColor: {
         'custom-color': 'rgb(38, 35, 34)',
         'custom-color2': 'rgb(242, 229, 215)',
-        'custom-green-color':'rgb(4, 117, 77)',
       },
+      textColor: {
+        'custom-color3':'rgb(139, 128, 249)',
+      }
     },
   },
   plugins: [],

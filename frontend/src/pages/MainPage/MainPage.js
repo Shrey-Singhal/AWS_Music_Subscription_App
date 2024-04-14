@@ -10,7 +10,7 @@ const MainPage = () => {
 
     return (
         <div className="flex flex-col mt-14 items-center justify-center">
-            <div className="font-bold text-4xl">
+            <div className="font-bold text-4xl ">
                 {user ? <h1>Welcome, {user.name}!</h1> : <h1>You are not logged in</h1>}
             </div>
 

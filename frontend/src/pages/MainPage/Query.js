@@ -60,9 +60,9 @@ const Query = () => {
 
     return (
         <div className="flex flex-col mt-8">
-            <h1 className="flex text-2xl font-bold mb-2">Query Area</h1>
-            <p>You can enter some information in any (or all) of these text areas and click the “Submit Query” button</p>
-            <div className="w-[300px]  rounded-md mt-2">
+            <h1 className="flex text-2xl font-bold mb-2 ">Query Area</h1>
+            <p className="text-sm">Enter some information in any (or all) of these text areas and click the “Submit Query” button</p>
+            <div className="w-[300px]  rounded-md mt-4">
                 <form onSubmit={handleSubmitQuery}>
                     <div className="flex space-x-2">
                         <div>
