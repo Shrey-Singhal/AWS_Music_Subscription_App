@@ -8,6 +8,7 @@ import Subscriptions from "./pages/MainPage/Subscriptions";
 import Query from "./pages/MainPage/Query";
 import {AuthProvider} from "./Context/AuthContext";
 import {SubscriptionProvider} from "./Context/SubscriptionContext";
+import ViewLibrary from "./pages/ViewLibrary";
 function App() {
   return (
       <AuthProvider>
@@ -20,6 +21,7 @@ function App() {
                       <Route path="/register" element={<Register />} />
                       <Route path="/query" element={<Query />} />
                       <Route path="/subscriptions" element={<Subscriptions />} />
+                      <Route path ="/library" element={<ViewLibrary />} />
                   </Routes>
               </Router>
           </SubscriptionProvider>

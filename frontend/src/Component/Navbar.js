@@ -28,10 +28,18 @@ const Navbar = () => {
                         <Link to="/">
                             <button className="hover:text-gray-300">Login</button>
                         </Link>
+
                     )}
+
 
                     {user && (
                         <button onClick={handleLogout} className="hover:text-gray-300">Logout</button>
+                    )}
+
+                    {user && (
+                        <Link to="/library">
+                              <button className="hover:text-gray-300">View Library</button>
+                        </Link>
                     )}
                 </div>
             </div>
