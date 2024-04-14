@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {useAuth} from "../../Context/AuthContext";
 import {useSubscription} from "../../Context/SubscriptionContext";
+
+const ITEMS_PER_PAGE = 5;
 const Query = () => {
     const [artist, setArtist] = useState("");
     const [title, setTitle] = useState("");
@@ -12,6 +14,7 @@ const Query = () => {
 
     const { user } = useAuth();
     const { addSubscription } = useSubscription();
+    const [currentPage, setCurrentPage] = useState(1);
 
     const handleSubmitQuery = async (event) => {
         event.preventDefault();
@@ -46,36 +49,45 @@ const Query = () => {
         addSubscription(user.email, item);
     };
 
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
+
+    // Calculate the currently visible items
+    const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+    const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
+    const currentItems = musicData.slice(indexOfFirstItem, indexOfLastItem);
+
     return (
         <div className="flex flex-col mt-8">
             <h1 className="flex text-2xl font-bold mb-2">Query Area</h1>
             <p>You can enter some information in any (or all) of these text areas and click the “Submit Query” button</p>
             <div className="w-[300px]  rounded-md mt-2">
                 <form onSubmit={handleSubmitQuery}>
-                    <div className="flex space-x-4">
+                    <div className="flex space-x-2">
                         <div>
                             <label className="font-bold">Artist:</label>
-                            <input className="text-black rounded outline-none p-[3px] pl-[3px] pr-[3px]"
-                                   type = "artist" value={artist} onChange ={(e) => setArtist(e.target.value)} />
+                            <input className="text-black rounded outline-none p-[2px] pl-[2px] pr-[2px]"
+                                   type = "text" value={artist} onChange ={(e) => setArtist(e.target.value)} />
                         </div>
 
                         <div>
                             <label className="font-bold">Title:</label>
-                            <input className="text-black rounded outline-none p-[3px] pl-[3px] pr-[3px]"
-                                   type ="title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                            <input className="text-black rounded outline-none p-[2px] pl-[2px] pr-[2px]"
+                                   type ="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                         </div>
 
                         <div>
                             <label className="font-bold">Year:</label>
-                            <input className="text-black rounded outline-none p-[3px] pl-[3px] pr-[3px]"
-                                   type = "year" value = {year} onChange={(e) => setYear(e.target.value)}/>
+                            <input className="text-black rounded outline-none p-[2px] pl-[2px] pr-[2px]"
+                                   type = "text" value = {year} onChange={(e) => setYear(e.target.value)}/>
 
                         </div>
 
 
                     </div>
                     <button type="submit"
-                            className="p-[5px] pl-[16px] pr-[16px] rounded-[6px] leading-5 cursor-pointer
+                            className="p-[5px] pl-[2px] pr-[2px] rounded-[6px] leading-5 cursor-pointer
                     text-black bg-custom-color2 hover:brightness-90 w-full mb-1 mt-4 font-bold"
                     >Submit Query</button>
                 </form>
