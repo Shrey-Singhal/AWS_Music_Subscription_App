@@ -37,8 +37,8 @@ const Subscriptions = () => {
     };
 
     return (
-        <div className="flex flex-col mt-14 items-center justify-center">
-            <h1 className="flex text-3xl font-bold mb-2">Your Subscriptions</h1>
+        <div className="flex flex-col mt-8 items-center justify-center">
+            <h1 className="flex text-2xl font-bold mb-2">Your Subscriptions</h1>
             <div>
                 <table className="min-w-full divide-y">
                     <thead>

@@ -27,14 +27,13 @@ const MainPage = () => {
             {/*        text-black bg-custom-color2 hover:brightness-90 w-full mb-1"*/}
             {/*        onClick={() => navigate('/query')}>Query Area</button>*/}
             {/*</div>*/}
-            <div className="flex">
-                <div className="flex-1">
+            <div className="flex w-full max-w-7xl">
+                <div className="flex flex-1 items-start p-4  mt-8 bg-custom-color  shadow border border-white border-opacity-20">
                     <Query />
                 </div>
-                <div className="flex-1">
+                <div className="flex flex-1 items-start p-4  mt-8 bg-custom-color  shadow border border-white border-opacity-20">
                     <Subscriptions />
                 </div>
-
             </div>
         </div>
     );

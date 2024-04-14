@@ -47,27 +47,27 @@ const Query = () => {
     };
 
     return (
-        <div className="flex flex-col mt-14 px-20">
-            <h1 className="flex text-3xl font-bold mb-2">Query Area</h1>
+        <div className="flex flex-col mt-8">
+            <h1 className="flex text-2xl font-bold mb-2">Query Area</h1>
             <p>You can enter some information in any (or all) of these text areas and click the “Submit Query” button</p>
-            <div className="w-[380px] p-4  rounded-md mt-2">
+            <div className="w-[300px]  rounded-md mt-2">
                 <form onSubmit={handleSubmitQuery}>
                     <div className="flex space-x-4">
                         <div>
                             <label className="font-bold">Artist:</label>
-                            <input className="text-black rounded outline-none p-[5px] pl-[12px] pr-[12px]"
+                            <input className="text-black rounded outline-none p-[3px] pl-[3px] pr-[3px]"
                                    type = "artist" value={artist} onChange ={(e) => setArtist(e.target.value)} />
                         </div>
 
                         <div>
                             <label className="font-bold">Title:</label>
-                            <input className="text-black rounded outline-none p-[5px] pl-[12px] pr-[12px]"
+                            <input className="text-black rounded outline-none p-[3px] pl-[3px] pr-[3px]"
                                    type ="title" value={title} onChange={(e) => setTitle(e.target.value)} />
                         </div>
 
                         <div>
                             <label className="font-bold">Year:</label>
-                            <input className="text-black rounded outline-none p-[5px] pl-[12px] pr-[12px]"
+                            <input className="text-black rounded outline-none p-[3px] pl-[3px] pr-[3px]"
                                    type = "year" value = {year} onChange={(e) => setYear(e.target.value)}/>
 
                         </div>
@@ -84,7 +84,7 @@ const Query = () => {
             {errorMessage && <p className="text-red-500 text-sm mt-2">{errorMessage}</p>}
             {isVisible && (
                 <div className="mt-8">
-                    <h1 className="flex text-3xl font-bold mb-4">Your Results</h1>
+                    <h1 className="flex text-2xl font-bold mb-4">Your Results</h1>
                     <table className="min-w-full divide-y">
                         <thead>
                         <tr>
