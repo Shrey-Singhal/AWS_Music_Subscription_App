@@ -23,24 +23,25 @@ const Navbar = () => {
                     {/*    <button className="hover:text-gray-300">Query Area</button>*/}
                     {/*</Link>*/}
 
+                    {user && (
+                        <Link to="/library">
+                            <button className="hover:underline">View Library</button>
+                        </Link>
+                    )}
 
                     {!user && (
                         <Link to="/">
-                            <button className="hover:text-gray-300">Login</button>
+                            <button className="hover:underline text-custom-color3 font-semibold">Login</button>
                         </Link>
 
                     )}
 
 
                     {user && (
-                        <button onClick={handleLogout} className="hover:underline">Logout</button>
+                        <button onClick={handleLogout} className="hover:underline text-custom-color3 font-semibold">Logout</button>
                     )}
 
-                    {user && (
-                        <Link to="/library">
-                              <button className="hover:underline">View Library</button>
-                        </Link>
-                    )}
+
                 </div>
             </div>
         </nav>

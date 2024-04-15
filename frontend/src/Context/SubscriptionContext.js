@@ -32,7 +32,6 @@ export const SubscriptionProvider = ({ children }) => {
             subscription: item
         }).then(response => {
             if (response.data.statusCode === 200) {
-                alert('Subscription added successfully');
                 fetchSubscriptions(email);
             } else {
                 alert(response.data.body);
@@ -53,9 +52,6 @@ export const SubscriptionProvider = ({ children }) => {
             }
         }).then(response => {
             console.log(response);
-            if (response.data.statusCode === 200) {
-                alert('Subscription removed successfully');
-            }
         })
     };
 

@@ -105,7 +105,7 @@ const Query = () => {
                             <th className="text-left align-middle">Title</th>
                             <th className="text-left align-middle">Year</th>
 
-                            <th className="text-left align-middle">Subscribe</th>
+                            <th className="text-left align-middle">Unsubscribe</th>
                         </tr>
                         </thead>
                         <tbody className="bg-custom-color2 text-black divide-y divide-gray-300">
